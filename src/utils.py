@@ -21,11 +21,14 @@ def get_only_executed_operations(all_operations):
 
 def get_sorted_operations(not_sorted_operations):
     """сортирует операции по убыванию даты (от последних операций к ранним)"""
-    new_dictionary = {}
+    dict_for_sorted = {}
     for dictionary in not_sorted_operations:
-        new_dictionary[dictionary["date"]] = dictionary
-    sorted_operations = sorted(new_dictionary, reverse=True)
-    return sorted_operations
+        dict_for_sorted[dictionary["date"]] = dictionary
+    sorted_operations = sorted(dict_for_sorted.items(), reverse=True)
+    sorted_list_operations = []
+    for element in sorted_operations:
+        sorted_list_operations.append(element[1])
+    return sorted_list_operations
 
 
 operations = get_all_operations(OPERATIONS_PATH)
