@@ -1,6 +1,4 @@
 import os.path
 
-ROOT_DIR = os.path.abspath(".")
+ROOT_DIR = os.path.dirname(__file__)
 OPERATIONS_PATH = os.path.join(ROOT_DIR, "src", "Data", "operations.json")
-print(ROOT_DIR)
-print(OPERATIONS_PATH)
