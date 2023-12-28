@@ -31,6 +31,13 @@ def get_sorted_operations(not_sorted_operations):
     return sorted_list_operations
 
 
+def get_five_last_operations(all_sorted_operations):
+    """получает 5 последних операций из списка"""
+    five_operations = all_sorted_operations[:5]
+    return five_operations
+
+
 operations = get_all_operations(OPERATIONS_PATH)
 notsorted_operations = get_only_executed_operations(operations)
-print(get_sorted_operations(notsorted_operations))
+sorted_operations = get_sorted_operations(notsorted_operations)
+print(get_five_last_operations(sorted_operations))
