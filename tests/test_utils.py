@@ -1,5 +1,6 @@
 from config import TEST_DICTIONARY_PATH
 from src.utils import get_all_operations, get_only_executed_operations
+test_list_for_executed = [{"state": "EXECUTED"}, {"state": "CANCELED"}, {}]
 
 
 def test_get_all_operations():
@@ -7,6 +8,5 @@ def test_get_all_operations():
                                                         {"fruit": "apple", "animal": "dog"}]
 
 
-test_list_for_executed = [{"state": "EXECUTED"}, {"state": "CANCELED"}, {}]
 def test_get_only_executed_operations():
     assert get_only_executed_operations(test_list_for_executed) == [{"state": "EXECUTED"}]
