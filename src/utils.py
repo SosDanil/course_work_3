@@ -1,5 +1,4 @@
 import json
-from config import OPERATIONS_PATH
 from datetime import date
 
 
@@ -74,12 +73,3 @@ def get_formatted_operations(not_formatted_operations):
                                    f"{amount} {currency}\n\n")
         list_of_formatted_operations.append(formatted_operation)
     return list_of_formatted_operations
-
-operations = get_all_operations(OPERATIONS_PATH)
-notsorted_operations = get_only_executed_operations(operations)
-sorted_operations = get_sorted_operations(notsorted_operations)
-five_operations = get_five_last_operations(sorted_operations)
-print(get_formatted_operations(five_operations))
-# for operation in five_formatted_operations:
-#     print(operation)
-
