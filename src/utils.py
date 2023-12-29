@@ -49,6 +49,11 @@ def get_formatted_operations(not_formatted_operations):
         amount = operation["operationAmount"]["amount"]
         currency = operation["operationAmount"]["currency"]["name"]
 
+        to_list = operation["to"].split(" ")
+        to_str = to_list[0]
+        to_number = to_list[-1]
+        formatted_to_number = to_number[-4:]
+
         from_list = operation.get("from")
         if from_list:
             from_list_split = from_list.split(" ")
@@ -60,11 +65,6 @@ def get_formatted_operations(not_formatted_operations):
             from_str = from_list_split[:-1]
             formatted_from_str = " ".join(from_str)
 
-        to_list = operation["to"].split(" ")
-        to_str = to_list[0]
-        to_number = to_list[-1]
-        formatted_to_number = to_number[-4:]
-        if from_list:
             formatted_operation = (f"{formatted_date} {description}\n"
                                    f"{formatted_from_str} {formatted_from_number} -> {to_str} **{formatted_to_number}\n"
                                    f"{amount} {currency}\n\n")
@@ -75,11 +75,11 @@ def get_formatted_operations(not_formatted_operations):
         list_of_formatted_operations.append(formatted_operation)
     return list_of_formatted_operations
 
-# operations = get_all_operations(OPERATIONS_PATH)
-# notsorted_operations = get_only_executed_operations(operations)
-# sorted_operations = get_sorted_operations(notsorted_operations)
-# five_operations = get_five_last_operations(sorted_operations)
-# five_formatted_operations = get_formatted_operations(five_operations)
+operations = get_all_operations(OPERATIONS_PATH)
+notsorted_operations = get_only_executed_operations(operations)
+sorted_operations = get_sorted_operations(notsorted_operations)
+five_operations = get_five_last_operations(sorted_operations)
+print(get_formatted_operations(five_operations))
 # for operation in five_formatted_operations:
 #     print(operation)
 
