@@ -57,6 +57,7 @@ test_list_for_formatted_3 = [
   }
 ]
 
+
 def test_get_all_operations():
     assert get_all_operations(TEST_DICTIONARY_PATH) == [{"name": "Danil", "surname": "Klimenko"},
                                                         {"fruit": "apple", "animal": "dog"}]
